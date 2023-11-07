@@ -61,3 +61,6 @@ This function frees the memory pointed to by the given MeMS virtual address.
 It locates the corresponding node and segment (process or hole) in the memory structure and marks it as a hole. If adjacent segments are also holes, they are merged into a single hole.
 If the entire node is freed and its child (sub-chain) is empty, it is removed from the main chain.
 
+This is a test run of the code.
+![run](https://github.com/devansh2610/CSE231-OS-Assignment3/assets/133692296/e1fb4733-fb4a-400e-960d-9b29cd5b471d)
+
