@@ -1,5 +1,7 @@
 GitHub repository: https://github.com/devansh2610/CSE231-OS-Assignment3.git
 
+NOTE: Please add -lm in your own makefile or use the attached makefile, it uses -lm.
+
 The code manages memory in a hierarchical structure, where a main chain (linked list of nodes) contains sub-chains (linked list of segments) representing process (allocated) and hole (free) segments. The code keeps track of mappings between MeMS virtual and physical addresses in the mappings array. It is important to note that the code is designed to work on a specific platform or system with certain assumptions about page size (PAGE_SIZE) and system-specific features. The code uses mmap for memory allocation and deallocation. Additionally, the mappings array is used to maintain the MeMS virtual-to-physical address mapping.
 
 mems_mapping Structure: This structure is used to store mappings between MeMS virtual addresses and physical addresses.
