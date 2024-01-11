@@ -1,9 +1,12 @@
-GitHub repository: https://github.com/devansh2610/CSE231-OS-Assignment3.git
+## Introduction
+The code manages memory in a hierarchical structure, where a main chain (linked list of nodes) contains sub-chains (linked list of segments) representing process (allocated) and hole (free) segments. The code keeps track of mappings between MeMS virtual and physical addresses in the mappings array. It is important to note that the code is designed to work on a specific platform or system with certain assumptions about page size (PAGE_SIZE) and system-specific features. The code uses mmap for memory allocation and deallocation. Additionally, the mappings array is used to maintain the MeMS virtual-to-physical address mapping.
 
 NOTE: Please add -lm in your own makefile or use the attached makefile, it uses -lm.
 
-The code manages memory in a hierarchical structure, where a main chain (linked list of nodes) contains sub-chains (linked list of segments) representing process (allocated) and hole (free) segments. The code keeps track of mappings between MeMS virtual and physical addresses in the mappings array. It is important to note that the code is designed to work on a specific platform or system with certain assumptions about page size (PAGE_SIZE) and system-specific features. The code uses mmap for memory allocation and deallocation. Additionally, the mappings array is used to maintain the MeMS virtual-to-physical address mapping.
+This is a test run of the code.
+![run](https://github.com/devansh2610/CSE231-OS-Assignment3/assets/133692296/e1fb4733-fb4a-400e-960d-9b29cd5b471d)
 
+## Structures
 mems_mapping Structure: This structure is used to store mappings between MeMS virtual addresses and physical addresses.
 
 Node Structure: Represents a node in the main chain of memory segments.
@@ -15,6 +18,8 @@ Contains information about a specific memory segment, such as the start and end 
 mappings Array: An array of mems_mapping structures used to store MeMS virtual-to-physical address mappings.
 The mappings_count variable keeps track of the number of mappings.
 
+
+## Variables
 node_allocate: A pointer used to allocate nodes and chain nodes within a page.
 
 head: A pointer to the head of the main chain.
@@ -25,8 +30,10 @@ indexing: An index variable used to keep track of the current page being allocat
 
 check: A variable to keep track of the amount of space allocated within a page.
 
-These are the main functions in the code: 
+These are the main functions in the code:
 
+
+## Functions
 mems_init():
 This function initializes the MeMS system.
 It opens the /dev/zero device file, which provides null-terminated strings, for memory allocation.
@@ -64,7 +71,4 @@ mems_free(void* v_ptr):
 This function frees the memory pointed to by the given MeMS virtual address.
 It locates the corresponding node and segment (process or hole) in the memory structure and marks it as a hole. If adjacent segments are also holes, they are merged into a single hole.
 If the entire node is freed and its child (sub-chain) is empty, it is removed from the main chain.
-
-This is a test run of the code.
-![run](https://github.com/devansh2610/CSE231-OS-Assignment3/assets/133692296/e1fb4733-fb4a-400e-960d-9b29cd5b471d)
 
